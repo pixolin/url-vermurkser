@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>URL-Vermurkser</title>
+		<link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/@picocss/pico@1.*/css/pico.classless.min.css"
+		/>
+		<script src="app.min.js"></script>
+		<style>
+			article {
+				min-height: 500px;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<article>
+				<h1>URL-Vermurkser</h1>
+				<form id="anonymizer">
+					<label for="urlanon">URL eingeben: </label><br />
+					<input
+						id="urlanon"
+						type="text"
+						name="urlanon"
+						value="http://example.com/path/index.html?message=hello&who=world"
+					/><br />
+					<input type="submit" value="Vermurks die URL" />
+				</form>
+
+				<div id="log"></div>
+			</article>
+		</main>
+
+		<footer></footer>
+	</body>
+</html>
