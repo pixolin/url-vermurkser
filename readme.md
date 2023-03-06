@@ -13,11 +13,9 @@ git clone https://github.com/pixolin/url-vermurkser.git
 
 Anschließend das Verzeichnis im Browser öffnen, URL im angegebenen Format einfügen, Button anklicken. Die anonymisierte URL wird in die Zwischenablage kopiert.
 
-Wer die Webseite auf einem öffentlich zugänglichen Server einsetzt, sollte zur Einhaltung der DSGVO das [CSS-Framework herunterladen](https://github.com/picocss/pico/archive/refs/heads/master.zip), entpacken, das Verzeichnis `css` kopiern und den Link zum Stylesheet auf `<link rel="stylesheet" href="css/pico.classless.min.css"  />` kürzen.
-
 ## Acknowledgement
 
-Remerciements particuliers à Lucas Larroche, le développeur du génial framework CSS [pico.css](https://picocss.com).
+Special thanks to [Lucas Larroche](https://github.com/lucaslarroche), developer of the awesome CSS framework [pico.css](https://picocss.com), from which I took the stylesheet for this web page.
 
 ---
 

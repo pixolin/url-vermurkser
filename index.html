@@ -6,10 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>URL-Vermurkser</title>
 		<link rel="icon" href="data:;base64,iVBORw0KGgo=" />
-		<link
-			rel="stylesheet"
-			href="https://unpkg.com/@picocss/pico@1.*/css/pico.classless.min.css"
-		/>
+		<link rel="stylesheet" href="pico.classless.min.css" />
 		<script src="app.min.js"></script>
 		<style>
 			article {
@@ -18,14 +15,14 @@
 		</style>
 	</head>
 	<body>
-		<main>
+		<main class="container">
+			<h1>URL-Vermurkser</h1>
 			<article>
-				<h1>URL-Vermurkser</h1>
 				<form id="anonymizer">
 					<label for="urlanon">URL eingeben: </label><br />
 					<input
 						id="urlanon"
-						type="text"
+						type="url"
 						name="urlanon"
 						value="http://example.com/path/index.html?message=hello&who=world"
 					/><br />
@@ -36,6 +33,6 @@
 			</article>
 		</main>
 
-		<footer></footer>
+		<footer class="container">&copy; 2023 Bego Mario Garde, MIT</footer>
 	</body>
 </html>
