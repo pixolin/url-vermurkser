@@ -9,7 +9,7 @@ onsubmit = (event) => {
 	event.preventDefault();
 
   // read user input from form field
-	userinput = document.querySelector('[name="urlanon"]').value;
+	const userinput = document.querySelector('[name="urlanon"]').value;
 
   // split URL in parts to get the hostname
 	try {
