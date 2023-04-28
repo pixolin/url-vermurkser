@@ -1,7 +1,7 @@
 # URL-Vermurkser
 
 Webseite mit kurzem JavaScript zum **Anonymisieren von URLs**.
-Aus `https://myexample.com/` wird `https://mye…ple.com`.
+Aus `https://myexample.com/` wird `https://mye...ple.com`.
 
 Die Webseite verwendet ein Stylesheet aus dem OpenSource-Projekt [pico.css](https://picocss.com).
 
