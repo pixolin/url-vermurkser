@@ -21,11 +21,11 @@ onsubmit = (event) => {
 		domain = parts[parts.length - 2];
 
 		if (domain.length < 8) {
-			domain = domain[0] + '***' + domain[domain.length - 1];
+			domain = domain[0] + '...' + domain[domain.length - 1];
 		} else {
 			domain =
 				domain.slice(0, 3) +
-				'***' +
+				'...' +
 				domain.slice(domain.length - 3, domain.length);
 		}
 	} catch (err) {
