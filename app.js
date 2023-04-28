@@ -11,11 +11,6 @@ onsubmit = (event) => {
   // read user input from form field
 	userinput = document.querySelector('[name="urlanon"]').value;
 
-  // check is url schema is provided or add one
-	if (!userinput.startsWith('http')) {
-		userinput = 'http://' + userinput;
-	}
-
   // split URL in parts to get the hostname
 	try {
 		url = new URL(userinput);
