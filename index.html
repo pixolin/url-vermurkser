@@ -9,24 +9,59 @@
 		<link rel="stylesheet" href="pico.classless.min.css" />
 		<script src="app.min.js"></script>
 		<style>
-			article {
-				min-height: 500px;
+			#article {
+				min-height: 480px;
+				background: #fff;
+
+			}
+			#article.green {
+				animation-name: normal;
+				animation-duration: 2s;
+				animation-timing-function:ease-out;
+			}
+			@keyframes normal {
+  		from {background-color: green;}
+  		to {background-color: white;}
+			}
+			#columns {
+				display:flex;
+				column-gap:5%;
+			}
+			.column-one {
+				width:75%;
+			}
+			.column-two {
+				width: 20%;
 			}
 		</style>
 	</head>
 	<body>
 		<main class="container">
 			<h1>URL-Vermurkser</h1>
-			<article>
+			<article id="article">
+
 				<form id="anonymizer">
-					<label for="urlanon">URL eingeben: </label><br />
+					<div id="columns">
+					<div class="column-one">
+						<label for="urlanon">URL: </label>
+						<input
+							id="urlanon"
+							type="url"
+							name="urlanon"
+							placeholder="https://example.com/path/index.html?message=hello&who=world"
+							aria-placeholder="https://example.com"
+						/>
+					</div>
+				<div class="column-two">
+					<label for="addtext">Domain anonymisiert?</label>
 					<input
-						id="urlanon"
-						type="url"
-						name="urlanon"
-						placeholder="https://example.com/path/index.html?message=hello&who=world"
-						aria-placeholder="https://example.com"
-					/><br />
+						id="addtext"
+						type="checkbox"
+						name="addtext"
+						checked="true"
+					>
+				</div>
+			</div>
 					<input type="submit" value="Vermurks die URL" />
 				</form>
 

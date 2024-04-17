@@ -1,58 +1,80 @@
 //run onsubmit if user submits form entry
 window.addEventListener('DOMContentLoaded', function () {
-	document
-		.getElementById('anonymizer')
-		.addEventListener('submit', onsubmit );
+  document
+    .getElementById('anonymizer')
+    .addEventListener('submit', onsubmit);
 });
 
+
+
 onsubmit = (event) => {
-	event.preventDefault();
+  event.preventDefault();
+
+
 
   // read user input from form field
-	const userinput = document.querySelector('[name="urlanon"]').value;
+  const userinput = document.querySelector('[name="urlanon"]').value;
+  const addtext = document.querySelector('[name="addtext"]').checked;
 
   // split URL in parts to get the hostname
-	try {
-		url = new URL(userinput);
+  try {
+    url = new URL(userinput);
 
-		toAnonymize = url.hostname;
-		parts = toAnonymize.split('.');
-		domain = parts[parts.length - 2];
+    toAnonymize = url.hostname;
+    parts = toAnonymize.split('.');
+    domain = parts[parts.length - 2];
 
     // replace middle of hostname to anonymize URL
-		if (domain.length < 8) {
-			domain = domain[0] + '...' + domain[domain.length - 1];
-		} else {
-			domain =
-				domain.slice(0, 3) +
-				'...' +
-				domain.slice(domain.length - 3, domain.length);
-		}
-	} catch (err) {
-		// print error message, if no valid URL is entered
-		log.innerHTML =
-			'<p><mark>Keine gültige URL.</mark> Bitte Eingabe in der Form <pre>https://example.com/{path/to/file.html}</pre></p>' +
-			err +
-			'</p>';
-	}
+    if (domain.length < 8) {
+      domain = domain[0] + '...' + domain[domain.length - 1];
+    } else {
+      domain =
+        domain.slice(0, 3) +
+        '...' +
+        domain.slice(domain.length - 3, domain.length);
+    }
 
-	parts[parts.length - 2] = domain;
+    parts[parts.length - 2] = domain;
 
- // join parts of the URL
-	newDomain =
-		url.protocol +
-		'//' +
-		parts.join('.') +
-		url.port +
-		url.pathname +
-		url.search +
-		url.hash;
+  } catch (err) {
+    // print error message, if no valid URL is entered
+    log.innerHTML =
+      '<p><mark>Keine gültige URL.</mark></p><p> Bitte Eingabe in der Form & nbsp; <tt>https://example.com/{path/to/file.html}</tt>.</p>';
+  }
 
-  // copy URL to clipboard
-	navigator.clipboard.writeText(newDomain);
+  // join parts of the URL
+  newDomain =
+    url.protocol +
+    '//' +
+    parts.join('.') +
+    url.port +
+    url.pathname +
+    url.search +
+    url.hash;
 
-  // print anonymized URL
-	let output = '<p>In die Zwischenablage kopiert:</p>';
-	output += '<mark>' + newDomain + '</mark>';
-	log.innerHTML = output;
+  if (addtext === true) {
+    newDomain = `${newDomain} (Domain anonymisiert)`;
+  } else {
+    newDomain = newDomain;
+  }
+
+  let output = `<p>In die Zwischenablage kopiert:</p><mark>${newDomain}</mark>`;
+  log.innerHTML = output;
+
+  async function writeClipboardText(text) {
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+  writeClipboardText(newDomain);
+
+  const article = document.getElementById('article');
+  article.classList.add('green');
+  setTimeout(function () {
+    article.classList.remove('green');
+  }, 2000);
+
 };
